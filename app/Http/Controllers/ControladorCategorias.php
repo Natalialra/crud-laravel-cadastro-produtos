@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Categoria;
+use Illuminate\Support\Facades\Log;
 
 class ControladorCategorias extends Controller
 {
@@ -23,7 +25,7 @@ class ControladorCategorias extends Controller
      */
     public function create()
     {
-        //
+        return view('novacategoria');
     }
 
     /**
@@ -34,7 +36,10 @@ class ControladorCategorias extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Log::info('Cadastrando categoria: ' . json_encode($request->all()));
+        $cat = new Categoria();
+        $cat->nome = $request->input('nomeCategoria');
+        $cat->save();
     }
 
     /**
