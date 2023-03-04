@@ -22,3 +22,7 @@ Route::get('/', function () {
 Route::get('/produtos', [ControladorProduto::class, 'index'] );
 
 Route::get('/categorias', [ControladorCategorias::class, 'index'] );
+
+Route::get('/categorias/novo', [ControladorCategorias::class, 'create'] );
+
+Route::post('/categorias', [ControladorCategorias::class, 'store'] )->name('categorias.store');
