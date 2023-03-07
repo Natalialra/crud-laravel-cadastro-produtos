@@ -17,7 +17,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Cadastro de Categorias</h5>
                   <p class="card-text">Cadastre aqui as categorias</p>
-                  <a href="/categorias" class="btn btn-success">Cadastrar Categorias</a>
+                  <a href="/categorias/novo" class="btn btn-success">Cadastrar Categorias</a>
                 </div>
               </div>
             </div>

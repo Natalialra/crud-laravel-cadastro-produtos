@@ -19,10 +19,10 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/produtos', [ControladorProduto::class, 'index'] );
+Route::get('/produtos', [ControladorProduto::class, 'index']);
 
-Route::get('/categorias', [ControladorCategorias::class, 'index'] );
+Route::get('/categorias', [ControladorCategorias::class, 'index']);
 
-Route::get('/categorias/novo', [ControladorCategorias::class, 'create'] );
+Route::get('/categorias/novo', [ControladorCategorias::class, 'create'])->name('categorias.create');
 
-Route::post('/categorias', [ControladorCategorias::class, 'store'] )->name('categorias.store');
+Route::post('/categorias', [ControladorCategorias::class, 'store'])->name('categorias.store');
