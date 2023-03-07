@@ -25,4 +25,10 @@ Route::get('/categorias', [ControladorCategorias::class, 'index']);
 
 Route::get('/categorias/novo', [ControladorCategorias::class, 'create'])->name('categorias.create');
 
+Route::get('categorias/apagar/{id}', [ControladorCategorias::class, 'destroy'])->name('categorias.destroy');
+
+Route::get('categorias/editar/{id}', [ControladorCategorias::class, 'edit'])->name('categorias.edit');
+
+Route::post('categorias/{id}', [ControladorCategorias::class, 'update'])->name('categorias.update');
+
 Route::post('/categorias', [ControladorCategorias::class, 'store'])->name('categorias.store');
