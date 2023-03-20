@@ -21,6 +21,14 @@ Route::get('/', function () {
 
 Route::get('/produtos', [ControladorProduto::class, 'index']);
 
+Route::get('/produtos/novo', [ControladorProduto::class, 'create'])->name('produtos.create');
+
+Route::post('/produtos', [ControladorProduto::class, 'store'])->name('produtos.store');
+
+Route::get('produtos/apagar/{id}', [ControladorProduto::class, 'destroy'])->name('produtos.destroy');
+
+Route::get('produtos/editar/{id}', [ControladorProduto::class, 'edit'])->name('produtos.edit');
+
 Route::get('/categorias', [ControladorCategorias::class, 'index']);
 
 Route::get('/categorias/novo', [ControladorCategorias::class, 'create'])->name('categorias.create');
