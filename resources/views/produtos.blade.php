@@ -19,7 +19,7 @@
                             <tr>
                                 <td>{{ $produto->id }}</td>
                                 <td>{{ $produto->nome }}</td>
-                                <td>{{ $produto->preco }}</td>
+                                <td>R$ {{ number_format($produto->preco, 2, ',', '.') }}</td>
                                 <td>
                                     <a href="/produtos/editar/{{ $produto->id }}" class="btn btn-sm btn-primary">Editar</a>
                                     <a href="/produtos/apagar/{{ $produto->id }}" class="btn btn-sm btn-danger">Apagar</a>
