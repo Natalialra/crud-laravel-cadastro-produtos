@@ -8,7 +8,6 @@
                 <table class="table table-ordered table-hover">
                     <thead>
                         <tr>
-                            <th>Código</th>
                             <th>Produto</th>
                             <th>Preço</th>
                             <th>Ações</th>
@@ -17,7 +16,6 @@
                     <tbody>
                         @foreach ($produtos as $produto)
                             <tr>
-                                <td>{{ $produto->id }}</td>
                                 <td>{{ $produto->nome }}</td>
                                 <td>R$ {{ number_format($produto->preco, 2, ',', '.') }}</td>
                                 <td>
