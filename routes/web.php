@@ -29,6 +29,8 @@ Route::get('produtos/apagar/{id}', [ControladorProduto::class, 'destroy'])->name
 
 Route::get('produtos/editar/{id}', [ControladorProduto::class, 'edit'])->name('produtos.edit');
 
+Route::post('produtos/{id}', [ControladorProduto::class, 'update'])->name('produtos.update');
+
 Route::get('/categorias', [ControladorCategorias::class, 'index']);
 
 Route::get('/categorias/novo', [ControladorCategorias::class, 'create'])->name('categorias.create');
