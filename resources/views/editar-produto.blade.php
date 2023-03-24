@@ -16,7 +16,7 @@
                         </div>
                         <div class="col-2">
                             <label for="precoProduto" class="ms-2">Preço</label>
-                            <input type="number" name="precoProduto" class="form-control mt-3" id="precoProduto" value="{{$produtos->preco}}">
+                            <input type="text" name="precoProduto" class="form-control mt-3" id="precoProduto" value="{{ number_format($produtos->preco, 2, ',', '.') }}">
                         </div>
                         <div class="col-5">
                             <label for="categoriaProduto" class="ms-2">Categoria</label>

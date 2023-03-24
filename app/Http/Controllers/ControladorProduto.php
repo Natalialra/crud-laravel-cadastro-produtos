@@ -87,7 +87,7 @@ class ControladorProduto extends Controller
         if (isset($produtos)) {
             $produtos->nome = $request->input('nomeProduto');
             $produtos->estoque = 1;
-            $produtos->preco = $request->input('precoProduto');
+            $produtos->preco = str_replace(['R$', '.', ','], ['', '', '.'], $request->input('precoProduto'));
             $produtos->categoria_id = $request->input('categoria_id');
             $produtos->save();
         }
