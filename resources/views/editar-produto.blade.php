@@ -5,8 +5,8 @@
     <div class="card">
         <h5 class="card-header">Adicionar Novo Produto</h5>
         <div class="card-body">
-            <form action="{{ route('produtos.store') }}" method="POST">
-                @method('POST')
+            <form action="{{ route('produtos.update',['id' => $produtos->id]) }}" method="POST">
+                {{-- @method('POST') --}}
                 @csrf
                 <div class="form-group ">
                     <div class="row ">
