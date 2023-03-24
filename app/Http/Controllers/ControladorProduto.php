@@ -83,7 +83,15 @@ class ControladorProduto extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $produtos = Produtos::find($id);
+        if (isset($produtos)) {
+            $produtos->nome = $request->input('nomeProduto');
+            $produtos->estoque = 1;
+            $produtos->preco = $request->input('precoProduto');
+            $produtos->categoria_id = $request->input('categoria_id');
+            $produtos->save();
+        }
+        return redirect('/produtos');
     }
 
     /**
@@ -94,6 +102,10 @@ class ControladorProduto extends Controller
      */
     public function destroy($id)
     {
-        //
+        $produtos = Produtos::find($id);
+        if (isset($produtos)) {
+            $produtos->delete();
+        }
+        return redirect('/produtos');
     }
 }
