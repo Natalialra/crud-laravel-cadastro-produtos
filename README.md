@@ -9,14 +9,14 @@ Este é um projeto de cadastro de produtos e categorias de produtos desenvolvido
 
 O projeto possui as seguintes funcionalidades:
 
--Cadastro, edição e exclusão de categorias de produtos
--Cadastro, edição e exclusão de produtos, associando-os a uma categoria existente
--Listagem de categorias de produtos com seus respectivos produtos associados
+* Cadastro, edição e exclusão de categorias de produtos
+* Cadastro, edição e exclusão de produtos, associando-os a uma categoria existente
+* Listagem de categorias de produtos com seus respectivos produtos associados
 
 ## Tecnologias utilizadas
 
-Laravel 9
-PHP 8
+* Laravel 9
+* PHP 8
 
 ## Contribuição
 
