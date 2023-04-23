@@ -53,8 +53,7 @@
                         <div class="form-group">
                             <label for="nomeProduto" class="control-label">Categoria</label>
                             <div class="input-group">
-                                <select id="departamentoProduto" class="form-control">
-
+                                <select id="categoriaProduto" class="form-control">
                                 </select>
                             </div>
                         </div>
@@ -66,4 +65,25 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('javascript')
+<script type="text/javascript">
+function carregarCategorias() {
+    $.getJSON('/api/categorias', function(data) {
+        console.log(data);
+        for (i=0; i<data.length; i++) {
+            opcao = '<option value="' + data[i].id + '">' + data[i].nome + '</option>';
+            $('#categoriaProduto').append(opcao);
+        }
+    })
+}
+
+$(document).ready(function() {
+    carregarCategorias();
+});
+
+
+</script>
+
 @endsection
