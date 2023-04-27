@@ -4,7 +4,7 @@
     <div class="card border">
         <div class="card-body">
             <h5 class="card-title">Cadastro de Produtos</h5>
-            <table class="table table-ordered table-hover">
+            <table class="table table-ordered table-hover" id="tabelaProdutos">
                 <thead>
                     <tr>
                         <th>Código</th>
@@ -20,7 +20,8 @@
             </table>
         </div>
         <div class="card-footer">
-            <button class="btn btn-sm btn-primary" role="button" data-bs-toggle="modal" data-bs-target="#dlgProdutos">Novo Produto</button>
+            <button class="btn btn-sm btn-primary" role="button" data-bs-toggle="modal" data-bs-target="#dlgProdutos">Novo
+                Produto</button>
         </div>
     </div>
     <div class="modal" tabindex="-1" role="dialog" id="dlgProdutos">
@@ -60,7 +61,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Salvar</button>
-                        <button type="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>{{-- data-dismiss faz o dialog fechar quando clica no cancelar  --}}
+                        <button type="cancel" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Cancelar</button>{{-- data-dismiss faz o dialog fechar quando clica no cancelar  --}}
                 </form>
             </div>
         </div>
@@ -68,22 +70,51 @@
 @endsection
 
 @section('javascript')
-<script type="text/javascript">
-function carregarCategorias() {
-    $.getJSON('/api/categorias', function(data) {
-        console.log(data);
-        for (i=0; i<data.length; i++) {
-            opcao = '<option value="' + data[i].id + '">' + data[i].nome + '</option>';
-            $('#categoriaProduto').append(opcao);
+    <script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': "{{ csrf_token() }}"
         }
-    })
-}
+    });
+        function carregarCategorias() {
+            $.getJSON('/api/categorias', function(data) {
+                console.log(data);
+                for (i = 0; i < data.length; i++) {
+                    opcao = '<option value="' + data[i].id + '">' + data[i].nome + '</option>';
+                    $('#categoriaProduto').append(opcao);
+                }
+            })
+        }
 
-$(document).ready(function() {
-    carregarCategorias();
-});
+        function montarLinha(p) {
+            var linha = "<tr>" +
+                "<td>" + p.id + "</td>" +
+                "<td>" + p.nome + "</td>" +
+                "<td>" + p.estoque + "</td>" +
+                "<td>" + p.preco + "</td>" +
+                "<td>" + p.categoria_id + "</td>" +
+                "<td>" +
+                '<button class="btn btn-sm btn-primary" onclick="editar(' + p.id + ')"> Editar </button> ' +
+                '<button class="btn btn-sm btn-danger" onclick="remover(' + p.id + ')"> Apagar </button> ' +
+                "</td>" +
+                "</tr>";
+            return linha;
+        }
+
+        function carregarProdutos() {
+            $.getJSON('/api/produtos', function(produtos) {
+                console.log(produtos)
+                for (i = 0; i < produtos.length; i++) {
+                    linha = montarLinha(produtos[i]);
+                    $('#tabelaProdutos>tbody').append(linha);
+                }
+            })
+        }
 
 
-</script>
-
+        $(document).ready(function() {
+            carregarCategorias();
+            carregarProdutos();
+        });
+    </script>
 @endsection
