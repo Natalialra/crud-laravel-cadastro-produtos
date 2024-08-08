@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/produtos', [ControladorProduto::class, 'index']);
+Route::get('/produtos', [ControladorProduto::class, 'indexView']);
 
 Route::get('/produtos/novo', [ControladorProduto::class, 'create'])->name('produtos.create');
 
