@@ -20,8 +20,8 @@
         @component('componente_navbar', ["current" => $current])
         @endcomponent
         <main role="main">
-            @hasSection('body')
-                @yield('body')
+            @hasSection('body') // Verifica se a seção body existe no arquivo que está chamando o app.blade.php
+                @yield('body') // Se existir, então imprime o conteúdo da seção body
             @endif
         </main>
     </div>

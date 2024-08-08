@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-success my-3">
+<nav class="navbar navbar-expand-lg bg-info my-3 rounded">
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
